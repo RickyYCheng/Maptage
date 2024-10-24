@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="INumber.fs" />
+    <Compile Include="IVector2Ext.fs" />
     <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
