@@ -6,8 +6,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="INumber.fs" />
     <Content Include="paket.references" />
+    <Compile Include="INumber.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maptage.Pack\Maptage.Pack.csproj" />
