@@ -9,6 +9,7 @@
     <Content Include="paket.references" />
     <Compile Include="INumber.fs" />
     <Compile Include="IVector2.fs" />
+    <Compile Include="Vector2.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maptage.Pack\Maptage.Pack.csproj" />
