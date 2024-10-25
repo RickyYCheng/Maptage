@@ -19,8 +19,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Core", "src\Maptage
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maptage.Pack", "src\Maptage.Pack\Maptage.Pack.csproj", "{81DBCC4A-0A25-44C6-92B5-68A225894454}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests", "tests\Maptage.Tests\Maptage.Tests.fsproj", "{783B12F3-58AA-4B2F-8A28-28A010FA70DA}"
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests.Standard", "tests\Maptage.Tests.Standard\Maptage.Tests.Standard.fsproj", "{8D39567F-C86A-4F3B-BB59-051677802D93}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests", "tests\Maptage.Tests\Maptage.Tests.fsproj", "{783B12F3-58AA-4B2F-8A28-28A010FA70DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
