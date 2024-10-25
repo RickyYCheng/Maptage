@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
     <IsTestProject>true</IsTestProject>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\Maptage.Tests\paket.references" />
 	<Compile Include="..\Maptage.Tests/Tests.fs" />
   </ItemGroup>
   <ItemGroup>
-	  <ProjectReference Include="..\..\src\Maptage.Core\Maptage.Core.fsproj">
-		  <TargetFramework>netstandard2.1</TargetFramework>
-	  </ProjectReference>
-	  <ProjectReference Include="..\..\src\Maptage.Pack\Maptage.Pack.csproj">
-		  <TargetFramework>netstandard2.1</TargetFramework>
-	  </ProjectReference>
+	  <ProjectReference Include="..\..\src\Maptage.Core\Maptage.Core.fsproj"/>
+	  <ProjectReference Include="..\..\src\Maptage.Pack\Maptage.Pack.csproj"/>
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
