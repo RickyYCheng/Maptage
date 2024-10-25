@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Core", "src\Maptage.Core\Maptage.Core.fsproj", "{B19EF3A0-2E03-4A41-94C2-61AEAD80FD5E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maptage.Pack", "src\Maptage.Pack\Maptage.Pack.csproj", "{81DBCC4A-0A25-44C6-92B5-68A225894454}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests", "tests\Maptage.Tests\Maptage.Tests.fsproj", "{783B12F3-58AA-4B2F-8A28-28A010FA70DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{1AF5DD0A-3F67-4FC4-B621-81B976F66447}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,6 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "readme", "readme", "{C4F20E
 		License = License
 		README.MD = README.MD
 	EndProjectSection
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Core", "src\Maptage.Core\Maptage.Core.fsproj", "{B19EF3A0-2E03-4A41-94C2-61AEAD80FD5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maptage.Pack", "src\Maptage.Pack\Maptage.Pack.csproj", "{81DBCC4A-0A25-44C6-92B5-68A225894454}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests", "tests\Maptage.Tests\Maptage.Tests.fsproj", "{783B12F3-58AA-4B2F-8A28-28A010FA70DA}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Maptage.Tests.Standard", "tests\Maptage.Tests.Standard\Maptage.Tests.Standard.fsproj", "{8D39567F-C86A-4F3B-BB59-051677802D93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,8 +40,15 @@ Global
 		{783B12F3-58AA-4B2F-8A28-28A010FA70DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783B12F3-58AA-4B2F-8A28-28A010FA70DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783B12F3-58AA-4B2F-8A28-28A010FA70DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D39567F-C86A-4F3B-BB59-051677802D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D39567F-C86A-4F3B-BB59-051677802D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D39567F-C86A-4F3B-BB59-051677802D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D39567F-C86A-4F3B-BB59-051677802D93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F883123B-DA3D-426A-8075-0FEAB4CFA724}
 	EndGlobalSection
 EndGlobal

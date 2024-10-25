@@ -19,3 +19,10 @@ and 'num : (static member inline ( / ) : 'num * 'num -> 'num)
 and 'num : (static member inline op_Explicit : float32 -> 'num)
 > = 'num
 #endif
+
+module Literals =
+    #if NET7_0_OR_GREATER
+    let [<Literal>] TargetFramework = "NET7+";
+    #else
+    let [<Literal>] TargetFramework = "NETSTANDARD2.1";
+    #endif

@@ -1,8 +1,9 @@
-module Tests
+module Maptage.Tests
 
 #nowarn "0988"
 
 open Xunit
+open Xunit.Abstractions
 
-let [<Fact>] ``Default test``() = 
-    true |> Assert.True
+type TargetFrameworkHelper(out:ITestOutputHelper) =
+    [<Fact>] member _.``Test target framework``() = Maptage.Core.Literals.TargetFramework |> out.WriteLine
