@@ -10,6 +10,8 @@
     <Compile Include="Interop\INumber.fs" />
     <Compile Include="Interop\IVector2.fs" />
     <Compile Include="Interop\Vector2.fs" />
+    <Compile Include="Utils\GList.fs" />
+    <Folder Include="CSpace\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maptage.Pack\Maptage.Pack.csproj" />
