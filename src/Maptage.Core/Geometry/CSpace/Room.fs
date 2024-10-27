@@ -7,6 +7,12 @@ open Maptage.Core.Geometry
 [<AbstractClass; Sealed>]
 type Room =
     [<Extension>]
+    static member inline get_AABB(room:'v Room) =
+        room.Vertices
+        |> Array.fold (fun aabb elem ->
+           AABB(PosMin = aabb.PosMin.min elem, PosMax = aabb.PosMax.max elem))
+           (AABB(PosMin = room.Vertices[0], PosMax = room.Vertices[0]))
+    [<Extension>]
     static member inline get_Edge<'n, 'v when IVector2<'n, 'v>>(room:'v Room, idx) =
         let idx1 = idx
         let idx2 = (idx + 1) % room.Vertices.Length
@@ -68,12 +74,6 @@ type Room =
             do v <- v.sub(center).scale(scaling).add(center)
             i <- i + 1
         do room.CenterShift <- room.CenterShift.scale(scaling)
-    [<Extension>]
-    static member inline get_AABB(room:'v Room) =
-        room.Vertices
-        |> Array.fold (fun aabb elem ->
-           AABB(PosMin = aabb.PosMin.min elem, PosMax = aabb.PosMax.max elem))
-           (AABB(PosMin = room.Vertices[0], PosMax = room.Vertices[0]))
     [<Extension>]
     static member inline calcWalls<'n, 'v when IVector2<'n, 'v>>(room:'v Room) =
         room.Vertices |> Array.mapi (fun i _ ->

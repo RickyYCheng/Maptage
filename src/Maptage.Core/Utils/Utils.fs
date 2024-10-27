@@ -22,9 +22,3 @@ let gList = ListBuilder()
 let inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
     let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
     Span<'a>(p, length)
-
-
-[<AbstractClass; Sealed>]
-type ArrayExt =
-    [<Extension>]
-    static member inline _Sort(array:'t [], comparer:'t -> 't -> int) = Array.Sort(array, comparer)
