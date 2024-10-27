@@ -12,4 +12,4 @@ type CfgLine =
         cfgLine.Pos2 <- cfgLine.Pos2.add trans
     [<Extension>]
     static member inline compare<'n, 'v when IVector2<'n, 'v>>(this:'v CfgLine, ``to``:'v CfgLine) =
-        this.sqLength() - ``to``.sqLength()
+        this.sqLength().CompareTo(``to``.sqLength())

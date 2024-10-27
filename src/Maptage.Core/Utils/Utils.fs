@@ -2,6 +2,7 @@
 
 open System
 open System.Collections.Generic
+open System.Runtime.CompilerServices
 open Microsoft.FSharp.NativeInterop
 
 type ListBuilder() =
@@ -14,10 +15,16 @@ type ListBuilder() =
         let gList = List count
         f gList
         gList
-
 let gList = ListBuilder()
+
 
 #nowarn "9"
 let inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
     let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
     Span<'a>(p, length)
+
+
+[<AbstractClass; Sealed>]
+type ArrayExt =
+    [<Extension>]
+    static member inline _Sort(array:'t [], comparer:'t -> 't -> int) = Array.Sort(array, comparer)
