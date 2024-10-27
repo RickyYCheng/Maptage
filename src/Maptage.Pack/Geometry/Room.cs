@@ -4,7 +4,7 @@ public record struct Room<TVec>() where TVec : struct
 {
     public TVec[] Vertices { get; set; } = [];
     public TVec CenterShift { get; set; } = default;
-    public RoomWall<TVec>[] Walls { get; set; } = [];
+    public RoomWall<TVec>[] Walls { get; set; } = []; // calculated by vertices
     public bool[] DoorFlags { get; set; } = [];
 
     public float Energy { get; set; } = 1f;

@@ -1,6 +1,8 @@
-﻿module Maptage.Core.Utils
+﻿module [<AutoOpen>] Maptage.Core.Utils
 
+open System
 open System.Collections.Generic
+open Microsoft.FSharp.NativeInterop
 
 type ListBuilder() =
     member inline _.Delay f = f()
@@ -14,3 +16,8 @@ type ListBuilder() =
         gList
 
 let gList = ListBuilder()
+
+#nowarn "9"
+let inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
+    let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
+    Span<'a>(p, length)
