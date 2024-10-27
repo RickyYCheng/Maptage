@@ -16,9 +16,9 @@ type v2 =
     // prop
     [<Extension>] static member inline x<'n, 'v when IVector2<'n, 'v>>(v:'v) = v.get_Item 0
     [<Extension>] static member inline y<'n, 'v when IVector2<'n, 'v>>(v:'v) = v.get_Item 1
-    [<Extension>] static member inline x<'n, 'v when IVector2<'n, 'v>>(v:'v, x) = v.set_Item (0, x)
-    [<Extension>] static member inline y<'n, 'v when IVector2<'n, 'v>>(v:'v, y) = v.set_Item (0, y)
-    [<Extension>] static member inline xy<'n, 'v when IVector2<'n, 'v>>(v:'v, y) = v.set_Item (0, y); v.set_Item (1, y)
+    [<Extension>] static member inline set_x<'n, 'v when IVector2<'n, 'v>>(v:'v, x) = v.set_Item (0, x)
+    [<Extension>] static member inline set_y<'n, 'v when IVector2<'n, 'v>>(v:'v, y) = v.set_Item (0, y)
+    [<Extension>] static member inline set_xy<'n, 'v when IVector2<'n, 'v>>(v:'v, x, y) = v.set_Item (0, x); v.set_Item (1, y)
     [<Extension>] // if run in Release mode, the f# compiler will optimize the option in args
     static member inline ``with``(v:'v, ?x, ?y) =
         let x = x |> Option.defaultValue (v.x())
