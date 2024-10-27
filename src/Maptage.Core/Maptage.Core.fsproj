@@ -13,6 +13,7 @@
     <Compile Include="Utils\Utils.fs" />
     <Compile Include="Geometry\CSpace\Line.fs" />
     <Compile Include="Geometry\CSpace\Room.fs" />
+    <Compile Include="Geometry\CSpace\CfgLine.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maptage.Pack\Maptage.Pack.csproj" />
