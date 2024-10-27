@@ -10,7 +10,7 @@
     <Compile Include="Interop\INumber.fs" />
     <Compile Include="Interop\IVector2.fs" />
     <Compile Include="Interop\Vector2.fs" />
-    <Compile Include="Utils\GList.fs" />
+    <Compile Include="Utils\Utils.fs" />
     <Compile Include="Geometry\CSpace\Line.fs" />
     <Compile Include="Geometry\CSpace\Room.fs" />
   </ItemGroup>
