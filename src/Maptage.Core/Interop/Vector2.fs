@@ -5,9 +5,9 @@ open System.Runtime.CompilerServices
 [<AbstractClass; Sealed>]
 type v2 =
     // .ctor
-    static member inline cons<'n, 'v when IVector2<'n, 'v>>() = new 'v()
+    static member inline cons<'n, 'v when IVector2<'n, 'v>>() = Unchecked.defaultof<'v>
     static member inline cons<'n, 'v when IVector2<'n, 'v>> (x, y) =
-        let v = new 'v()
+        let v = Unchecked.defaultof<'v>
         v.set_Item(0, x)
         v.set_Item(1, y)
         v
