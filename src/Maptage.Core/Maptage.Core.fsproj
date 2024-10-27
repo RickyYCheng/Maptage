@@ -11,7 +11,8 @@
     <Compile Include="Interop\IVector2.fs" />
     <Compile Include="Interop\Vector2.fs" />
     <Compile Include="Utils\GList.fs" />
-    <Folder Include="CSpace\" />
+    <Compile Include="Geometry\CSpace\Line.fs" />
+    <Compile Include="Geometry\CSpace\Room.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maptage.Pack\Maptage.Pack.csproj" />
