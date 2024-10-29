@@ -22,3 +22,24 @@ let gList = ListBuilder()
 let inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
     let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
     Span<'a>(p, length)
+
+/// return -1 if number is a negative number
+let inline private log2 x =
+    let mutable result = 0  
+    let mutable n = x  
+    while n > 0 do  
+        n <- n >>> 1  
+        result <- result + 1  
+    result - 1  
+
+open Maptage.Core.Utils
+[<AbstractClass; Sealed>]
+type SpanExtension =
+    class
+        [<Extension>]
+        static member inline sortByInPlace(span:'t Span, projection) =
+            let comparer =
+                fun a b -> LanguagePrimitives.FastGenericComparer.Compare (projection a, projection b)
+                |> ComparisonIdentity.FromFunction 
+            SpanSortHelper.IntroSort(span, 2 * log2 span.Length + 1, comparer)
+    end
