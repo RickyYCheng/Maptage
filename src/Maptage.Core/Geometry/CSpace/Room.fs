@@ -34,14 +34,14 @@ type Room =
     static member inline get_ShiftedCenter<'n, 'v when IVector2<'n, 'v>>(room:'v Room) =
         room.get_Center().add room.CenterShift
     [<Extension>]
-    static member inline _Translate<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, trans:'v) =
+    static member inline translateInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, trans:'v) =
         let mutable i = 0
         while i < room.Vertices.Length do
             let v = room.Vertices[i]
             do v.set_xy(v.x() + trans.x(), v.y() + trans.y())
             i <- i + 1
     [<Extension>]
-    static member inline _Rotate<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, rad) =
+    static member inline rotateInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, rad) =
         let cv = rad |> cos |> 'n.op_Explicit
         let sv = rad |> sin |> 'n.op_Explicit
         let inline rotate (v:'v) =
@@ -56,7 +56,7 @@ type Room =
         
         do rotate room.CenterShift
     [<Extension>]
-    static member inline _Scale<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, scaling:float32) =
+    static member inline scaleInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, scaling:float32) =
         let scaling = scaling |> 'n.op_Explicit
         let center = room.get_Center()
         let mutable i = 0
@@ -66,7 +66,7 @@ type Room =
             i <- i + 1
         do room.CenterShift <- room.CenterShift.mul(scaling)
     [<Extension>]
-    static member inline _Scale<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, scaling:'v) =
+    static member inline scaleInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, scaling:'v) =
         let center = room.get_Center()
         let mutable i = 0
         while i < room.Vertices.Length do
@@ -80,5 +80,5 @@ type Room =
             RoomWall(Pos1 = room.Vertices[i], Pos2 = room.Vertices[(i + 1) % room.Vertices.Length])
         )
     [<Extension>]
-    static member inline _InitWalls<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref) =
+    static member inline initWallsInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref) =
         room.Walls <- room.calcWalls()
