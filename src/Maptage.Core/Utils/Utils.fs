@@ -40,9 +40,16 @@ type Span =
             |> ComparisonIdentity.FromFunction 
         SpanSortHelper.IntroSort(span, 2 * log2 span.Length + 1, comparer)
     [<Extension>]
-    static member inline iteri (span:_ Span, [<InlineIfLambda>]action) = 
+    static member inline iter (span:_ Span, [<InlineIfLambda>]action) = 
         let mutable i = 0 
         let mutable cnt = true
         while i < span.Length && cnt do 
             cnt <- action i span[i]
+            i <- i + 1
+    [<Extension>]
+    static member inline iter (span:_ Span, [<InlineIfLambda>]action) =
+        let mutable i = 0 
+        let mutable cnt = true
+        while i < span.Length && cnt do 
+            cnt <- action span[i]
             i <- i + 1
