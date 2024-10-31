@@ -17,29 +17,32 @@ type ListBuilder() =
         gList
 let gList = ListBuilder()
 
-
 #nowarn "9"
-let inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
-    let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
-    Span<'a>(p, length)
-
-/// return -1 if number is a negative number
-let inline private log2 x =
-    let mutable result = 0  
-    let mutable n = x  
-    while n > 0 do  
-        n <- n >>> 1  
-        result <- result + 1  
-    result - 1  
-
 open Maptage.Core.Utils
+
 [<AbstractClass; Sealed>]
-type SpanExtension =
-    class
-        [<Extension>]
-        static member inline sortByInPlace(span:'t Span, projection) =
-            let comparer =
-                fun a b -> LanguagePrimitives.FastGenericComparer.Compare (projection a, projection b)
-                |> ComparisonIdentity.FromFunction 
-            SpanSortHelper.IntroSort(span, 2 * log2 span.Length + 1, comparer)
-    end
+type Span =
+    static member inline stackalloc<'a when 'a: unmanaged> (length: int): Span<'a> =
+        let p = NativePtr.stackalloc<'a> length |> NativePtr.toVoidPtr
+        Span<'a>(p, length)
+    [<Extension>]
+    static member inline sortByInPlace(span:'t Span, projection) =
+        /// return -1 if number is a negative number
+        let inline log2 x =
+            let mutable result = 0
+            let mutable n = x
+            while n > 0 do
+                n <- n >>> 1
+                result <- result + 1
+            result - 1
+        let comparer =
+            fun a b -> LanguagePrimitives.FastGenericComparer.Compare (projection a, projection b)
+            |> ComparisonIdentity.FromFunction 
+        SpanSortHelper.IntroSort(span, 2 * log2 span.Length + 1, comparer)
+    [<Extension>]
+    static member inline iteri (span:_ Span, [<InlineIfLambda>]action) = 
+        let mutable i = 0 
+        let mutable cnt = true
+        while i < span.Length && cnt do 
+            cnt <- action i span[i]
+            i <- i + 1
