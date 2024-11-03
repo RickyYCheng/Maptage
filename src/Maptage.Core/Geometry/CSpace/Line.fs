@@ -4,12 +4,6 @@ open System.Runtime.CompilerServices
 open Maptage.Core
 open Maptage.Core.Geometry
 
-type ILine<'n, 'v, 'line
-when 'line : (member Pos1:'v)
-and 'line : (member Pos2:'v)
-and IVector2<'n, 'v>
-> = 'line
-
 [<AbstractClass; Sealed>] // static class
 type Line =
     [<Extension>]
