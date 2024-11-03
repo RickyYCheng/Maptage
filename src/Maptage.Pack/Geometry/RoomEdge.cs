@@ -1,6 +1,6 @@
 ﻿namespace Maptage.Core.Geometry;
 
-public record struct RoomEdge<TVec>() : ILine<TVec> where TVec : struct
+public record struct RoomEdge<TVec>() where TVec : struct
 {
     public int Idx1 { get; set; }
     public int Idx2 { get; set; }
