@@ -37,7 +37,7 @@ type Room =
     static member inline translateInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, trans:'v) =
         let mutable i = 0
         while i < room.Vertices.Length do
-            let v = room.Vertices[i]
+            let mutable v = room.Vertices[i]
             do v.set_xy(v.x() + trans.x(), v.y() + trans.y())
             i <- i + 1
     [<Extension>]
@@ -47,14 +47,15 @@ type Room =
         let inline rotate (v:'v) =
             let x = v.x()
             let y = v.y()
-            v.set_xy(x * cv + y * sv, -x * sv + y * cv)
+            v2.cons(x * cv + y * sv, -x * sv + y * cv)
         
         let mutable i = 0
         while i < room.Vertices.Length do
-            do rotate room.Vertices[i]
+            room.Vertices[i] <- rotate room.Vertices[i]
             i <- i + 1
         
-        do rotate room.CenterShift
+        room.CenterShift <- rotate room.CenterShift
+        
     [<Extension>]
     static member inline scaleInPlace<'n, 'v when IVector2<'n, 'v>>(room:'v Room byref, scaling:float32) =
         let scaling = scaling |> 'n.op_Explicit
