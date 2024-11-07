@@ -49,3 +49,12 @@ module Vector2Tests =
     let [<Fact>] ``Vector2 with``() = {x=0f;y=0f}.``with``(x=1f, y=1f) = {x=1f;y=1f} |> Assert.True
     let [<Fact>] ``Vector2 with X``() = {x=0f;y=0f}.withX(1f) = {x=1f;y=0f} |> Assert.True
     let [<Fact>] ``Vector2 with Y``() = {x=0f;y=0f}.withY(1f) = {x=0f;y=1f} |> Assert.True
+    let [<Fact>] ``Vector2 add``() = {x=1f;y=1f}.add {x=2f;y=2f} = {x=3f;y=3f} |> Assert.True
+    let [<Fact>] ``Vector2 sub``() = {x=1f;y=1f}.sub {x=2f;y=2f} = {x = -1f;y = -1f} |> Assert.True
+    let [<Fact>] ``Vector2 mul``() = {x=2f;y=2f}.mul 2f = {x=4f;y=4f} |> Assert.True
+    let [<Fact>] ``Vector2 dot``() = {x=2f;y=2f}.dot {x=3f;y=3f} = 12f |> Assert.True
+    let [<Fact>] ``Vector2 div``() = {x=2f;y=2f}.div 2f = {x=1f;y=1f} |> Assert.True
+    let [<Fact>] ``Vector2 neg``() = {x=2f;y=2f}.neg() = {x = -2f; y = -2f} |> Assert.True
+    let [<Fact>] ``Vector2 scale``() = {x=2f; y=3f}.scale {x=4f;y=5f} = {x=8f;y=15f} |> Assert.True
+    let [<Fact>] ``Vector2 cross``() = {x=2f; y=3f}.cross {x=4f;y=5f} = -2f |> Assert.True
+        
